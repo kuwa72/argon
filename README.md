@@ -1,18 +1,8 @@
-* Q: Can I get inherited struct from embeded parent struct?
-  * A: Can not.
+# argon
 
-```
-Test get inherited struct name from parent method
+Experiment and verification of Go struct embedding, method inheritance behaviors, and reflection.
 
-Call method from parent object.
-call generic
-argon.Parent
-1
-{ID  int  0 [0] false}
+## Background Question
 
-Call method from inherited object.
-call generic
-argon.Parent
-1
-{ID  int  0 [0] false}
-```
+- **Q**: Can an embedded parent struct inspect the outer child struct type via reflection from within the parent's method?
+- **A**: No, receiver methods on embedded structs receive only the parent type instance without dynamic virtual dispatch.
